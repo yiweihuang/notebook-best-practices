@@ -22,7 +22,12 @@ jobs:
 
           local-notebook-path: notebooks/run_unit_tests.py
 
-          existing-cluster-id: ${{ secrets.CLUSTER_ID }}
+          new-cluster-json: >
+            {
+              "num_workers": 1,
+              "spark_version": "11.3.x-scala2.12",
+              "node_type_id": "i3.xlarge"
+            }
 
           git-commit: "${{ github.event.pull_request.head.sha }}"
 
